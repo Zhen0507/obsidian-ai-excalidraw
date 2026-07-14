@@ -60,13 +60,13 @@ export class AIConfigManager {
 
     switch (provider) {
       case 'deepseek':
-        return config?.baseUrl || 'https://api.deepseek.com';
+        return 'https://api.deepseek.com/chat/completions';
       case 'openai':
-        return config?.baseUrl || 'https://api.openai.com/v1';
+        return 'https://api.openai.com/v1/chat/completions';
       case 'alibaba':
         return 'https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation';
       case 'volcengine':
-        return config?.baseUrl || 'https://api.volcengine.com';
+        return 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
       default:
         throw new Error(`未知的提供商: ${provider}`);
     }
@@ -83,11 +83,11 @@ export class AIConfigManager {
       case 'deepseek':
         return config?.model || 'deepseek-chat';
       case 'openai':
-        return config?.model || 'gpt-4';
+        return config?.model || 'gpt-3.5-turbo';
       case 'alibaba':
         return config?.model || 'qwen-turbo';
       case 'volcengine':
-        return config?.model || 'doubao-pro-32k';
+        return config?.model || 'doubao-lite-32k';
       default:
         return 'default';
     }
@@ -140,16 +140,12 @@ export class AIConfigManager {
     switch (provider) {
       case 'deepseek':
       case 'openai':
+      case 'volcengine':
         return {
           'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json'
         };
       case 'alibaba':
-        return {
-          'Authorization': `Bearer ${apiKey}`,
-          'Content-Type': 'application/json'
-        };
-      case 'volcengine':
         return {
           'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json'
@@ -171,6 +167,7 @@ export class AIConfigManager {
     switch (provider) {
       case 'deepseek':
       case 'openai':
+      case 'volcengine':
         return {
           model,
           messages: [
@@ -193,16 +190,6 @@ export class AIConfigManager {
             temperature: 0.7,
             max_tokens: 4000
           }
-        };
-      case 'volcengine':
-        return {
-          model,
-          messages: [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: prompt }
-          ],
-          temperature: 0.7,
-          max_tokens: 4000
         };
       default:
         return {};
