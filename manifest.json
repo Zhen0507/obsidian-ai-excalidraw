@@ -1,0 +1,11 @@
+{
+  "id": "obsidian-ai-excalidraw",
+  "name": "AI Excalidraw Generator",
+  "version": "1.0.0",
+  "minObsidianVersion": "0.15.0",
+  "description": "Generate Excalidraw diagrams using AI based on natural language descriptions",
+  "author": "Zhen0507",
+  "authorUrl": "https://github.com/Zhen0507",
+  "fundingUrl": "",
+  "isDesktopOnly": false
+}

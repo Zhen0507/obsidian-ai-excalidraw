@@ -1,0 +1,8 @@
+node_modules/
+dist/
+main.js
+*.js
+!esbuild.config.mjs
+*.map
+.env
+.DS_Store

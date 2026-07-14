@@ -1,0 +1,33 @@
+{
+  "name": "obsidian-ai-excalidraw",
+  "version": "1.0.0",
+  "description": "An Obsidian plugin that uses AI to generate Excalidraw diagrams based on natural language descriptions",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit && node esbuild.config.mjs production",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "obsidian",
+    "plugin",
+    "excalidraw",
+    "ai",
+    "diagram"
+  ],
+  "author": "Zhen0507",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "16.11.6",
+    "@typescript-eslint/eslint-plugin": "5.2.0",
+    "@typescript-eslint/parser": "5.2.0",
+    "builtin-modules": "3.2.0",
+    "esbuild": "0.13.12",
+    "obsidian": "latest",
+    "tslib": "2.4.0",
+    "typescript": "4.7.4"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
